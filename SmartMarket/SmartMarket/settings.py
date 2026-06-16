@@ -12,6 +12,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-eab%q9)rd6o1f-!&6hgnf(_eawf)4dxmu^(780_l^bd%@wes7q'
 
+# DJANGO_SETTINGS_MODULE = 'SmartMarket.settings'
+# # envronment variable for the settings module
+# DJANGO_SETTINGS_MODULE = '.env'  # This line is not necessary and can be removed
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
