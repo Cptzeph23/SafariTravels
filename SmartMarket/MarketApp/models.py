@@ -10,4 +10,20 @@ class Contact(models.Model):
     def __str__(self):
         return self.name
 
+# model for login and registration
 
+class Member(models.Model):
+    email = models.EmailField()
+    password = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.email   
+    
+# model for registration form
+class NewUser(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    password = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name

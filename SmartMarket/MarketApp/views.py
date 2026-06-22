@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render
 
-from .models import Contact
+from .models import Contact, NewUser
 
 # Create your views here.
 
@@ -33,13 +33,31 @@ def hotel(request):
     return render(request, 'hotel.html')
 
 def index(request):
-    return render(request, 'index.html')
+    if request.method == 'POST':
+        if NewUser.objects.filter(
+            email=request.POST.get('email'),
+            password=request.POST.get('password')).exists():
+            return render(request, 'index.html')
+        else:
+            return redirect('/login/')
+    else: 
+        return render(request, 'login.html')
+    
 
 def main(request):
     return render(request, 'main.html')
 
 def register(request):
-    return render(request, 'register.html')
+    if request.method == 'POST':
+        users = NewUser(
+            name=request.POST.get('name'),
+            email=request.POST.get('email'),
+            password=request.POST.get('password')
+        )
+        users.save()
+        return redirect('/login/')
+    else:
+        return render(request, 'register.html')
 
 def login(request):
     return render(request, 'login.html')

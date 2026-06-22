@@ -6,7 +6,7 @@ from MarketApp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('index/', views.index, name='index'),
+    path('', views.index, name='index'),
     path('about/', views.about, name='about'),
     path('blog-single/', views.blog_single, name='blog_single'),
     path('blog/', views.blog, name='blog'),
@@ -15,5 +15,5 @@ urlpatterns = [
     path('hotel/', views.hotel, name='hotel'),
     path('main/', views.main, name='main'),
     path('register/', views.register, name='register'),
-    path('', views.login, name='login'),
+    path('login/', views.login, name='login'),
 ]
